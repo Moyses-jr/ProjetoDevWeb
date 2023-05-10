@@ -22,6 +22,42 @@ class EstoqueSeeder extends Seeder
             'nome' => 'Camiseta',
             'quantidade' => 50,
             ],
+            [
+            'nome' => 'Bola de Volei',
+            'quantidade' => 50,
+            ],
+            [
+            'nome' => 'Bola de Fut',
+            'quantidade' => 50,
+            ],
+            [
+            'nome' => 'Monitor',
+            'quantidade' => 50,
+            ],
+            [
+            'nome' => 'Mouse',
+            'quantidade' => 50,
+            ],
+            [
+            'nome' => 'Xablau',
+            'quantidade' => 50,
+            ],
+            [
+            'nome' => 'Xablu',
+            'quantidade' => 80,
+            ],
+            [
+            'nome' => 'Aipim',
+            'quantidade' => 15,
+            ],
+            [
+            'nome' => 'Moletom',
+            'quantidade' => 10,
+            ],
+            [
+            'nome' => 'Tênis',
+            'quantidade' => 20,
+            ],
            ]);
     }
 }

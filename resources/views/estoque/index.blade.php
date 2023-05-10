@@ -13,6 +13,7 @@
             <tr>
                 <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">ID</th>
                 <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Produto</th>
+                <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Mínimo</th>
                 <th class="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
             </tr>
         </thead>
@@ -23,6 +24,11 @@
                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5"><a href="{{route('estoque.editar', $item['id'])}}">{{$item['id']}}</a></td>
                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">{{$item['nome']}}</td>
                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">{{$item['quantidade']}}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5">
+                    <a class="rounded-lg border border-red-500 bg-red-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-sm transition-all hover:border-red-700 hover:bg-red-700 focus:ring focus:ring-red-200 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300" href="{{route('estoque.apagar', $item['id'])}}">
+                        Deletar
+                    </a>
+                </td>
             </tr>
             @endforeach
         </tbody>

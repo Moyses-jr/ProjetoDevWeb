@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EstoqueRequest;
 use App\Models\Estoque;
-
+use Illuminate\Http\Request;
 
 class EstoqueController extends Controller
 {
     public function index()
     {
-        $lista = Estoque::all();
+        $lista = Estoque::orderBy('id', 'asc')->get();
 
         return view('estoque.index', [
             'lista' => $lista,
@@ -35,12 +35,42 @@ class EstoqueController extends Controller
         $estoque = Estoque::find($dados['id']);
         $estoque->fill($dados);
         $estoque->save();
-        return redirect('estoque');
+
+        return redirect('estoque')->with('sucesso', 'Item alterado com sucesso.');
         
     }
 
     public function editar(Estoque $estoque)
     {
         return view('estoque.adicionar', ['editar' => $estoque,]);
+    }
+
+    public function apagar(Estoque $estoque)
+    {
+        // dd(request()->isMethod('delete'));
+        if (request()->isMethod('delete')) {
+            // dd(request('estoque'));
+            // dd('Estaria apagando de verdade');
+            $estoque->delete();
+            return redirect('estoque')->with('sucesso', 'Item apagado com sucesso.');
+
+        }
+
+        return view('estoque.apagar', [
+            'estoque' => $estoque,
+        ]);
+        
+    }
+
+    public function busca(Request $form)
+    {
+        $busca = $form->busca;
+        $lista = Estoque::where('nome', 'LIKE', "%{$busca}%")->get();
+       
+
+        return view('estoque.index', [
+            'lista' => $lista,
+        ]);
+        
     }
 }

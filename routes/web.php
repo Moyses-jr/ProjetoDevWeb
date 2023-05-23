@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EstoqueController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +43,10 @@ Route::group(['prefix' => '/user'], function () {
 
     Route::get('', [UserController::class,'index'])->name('user');
 });
+
+Route::get('/upload',[UploadController::class, 'index'])->name('upload');
+
+Route::post('/upload/save',[UploadController::class, 'save'])->name('upload.save');
 
 // Route::get('/teste', function() {
 //     return 'O teste funcionou';
